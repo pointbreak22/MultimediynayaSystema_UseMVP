@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31005.135
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultimediynayaSystema", "MultimediynayaSystema\MultimediynayaSystema.csproj", "{96BCBBA2-021C-4506-B05E-281586769410}"
+	ProjectSection(ProjectDependencies) = postProject
+		{6DC44D0F-A19B-4586-8042-BDA0A70967A7} = {6DC44D0F-A19B-4586-8042-BDA0A70967A7}
+		{03DF0414-0E8C-40D6-9B1D-A9AE190096C7} = {03DF0414-0E8C-40D6-9B1D-A9AE190096C7}
+		{CE2CE826-3AEC-4562-BF79-794E6EB63727} = {CE2CE826-3AEC-4562-BF79-794E6EB63727}
+		{842BD443-10F8-420D-BE55-B48DA5E99442} = {842BD443-10F8-420D-BE55-B48DA5E99442}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Guitar", "Guitar\Guitar.csproj", "{842BD443-10F8-420D-BE55-B48DA5E99442}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Piano", "Piano\Piano.csproj", "{6DC44D0F-A19B-4586-8042-BDA0A70967A7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlockFlute", "BlockFlute\BlockFlute.csproj", "{03DF0414-0E8C-40D6-9B1D-A9AE190096C7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LaunchPad", "LaunchPad\LaunchPad.csproj", "{CE2CE826-3AEC-4562-BF79-794E6EB63727}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{96BCBBA2-021C-4506-B05E-281586769410}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96BCBBA2-021C-4506-B05E-281586769410}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96BCBBA2-021C-4506-B05E-281586769410}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96BCBBA2-021C-4506-B05E-281586769410}.Release|Any CPU.Build.0 = Release|Any CPU
+		{842BD443-10F8-420D-BE55-B48DA5E99442}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{842BD443-10F8-420D-BE55-B48DA5E99442}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{842BD443-10F8-420D-BE55-B48DA5E99442}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{842BD443-10F8-420D-BE55-B48DA5E99442}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DC44D0F-A19B-4586-8042-BDA0A70967A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DC44D0F-A19B-4586-8042-BDA0A70967A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DC44D0F-A19B-4586-8042-BDA0A70967A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DC44D0F-A19B-4586-8042-BDA0A70967A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03DF0414-0E8C-40D6-9B1D-A9AE190096C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03DF0414-0E8C-40D6-9B1D-A9AE190096C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03DF0414-0E8C-40D6-9B1D-A9AE190096C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03DF0414-0E8C-40D6-9B1D-A9AE190096C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE2CE826-3AEC-4562-BF79-794E6EB63727}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE2CE826-3AEC-4562-BF79-794E6EB63727}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE2CE826-3AEC-4562-BF79-794E6EB63727}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE2CE826-3AEC-4562-BF79-794E6EB63727}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0EF30F50-FC65-4CD8-B8B0-CC2892602933}
+	EndGlobalSection
+EndGlobal
