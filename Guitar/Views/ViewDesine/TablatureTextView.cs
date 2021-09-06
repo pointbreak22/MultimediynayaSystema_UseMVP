@@ -14,11 +14,13 @@ namespace Guitar.Views
 
         public TablatureTextView()
         {
-            textTabs = new TextBox();
-            textTabs.Font = new Font("Microsoft Sans Serif", 7.2f, FontStyle.Bold);
-            textTabs.Size = new Size(16, 4);
-            textTabs.BackColor = Color.Black;
-            textTabs.ForeColor = Color.White;
+            textTabs = new TextBox
+            {
+                Font = new Font("Microsoft Sans Serif", 7.2f, FontStyle.Bold),
+                Size = new Size(16, 4),
+                BackColor = Color.Black,
+                ForeColor = Color.White
+            };
         }
     }
 }

@@ -10,7 +10,7 @@ namespace Guitar.Presenter
 {
     public class TextTabsPresenter
     {
-        private ITablatureTextView tablatureText;
+        private readonly ITablatureTextView tablatureText;
 
         public TextTabsPresenter(ITablatureTextView tablatureText)
         {

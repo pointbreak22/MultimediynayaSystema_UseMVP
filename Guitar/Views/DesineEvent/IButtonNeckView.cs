@@ -7,8 +7,8 @@ using System.Windows.Forms;
 
 namespace Guitar.Views
 {
-    public interface IButtonDeckView
+    public interface IButtonNeckView
     {
-        PictureBox[] pictureButtonDecks { get; set; }
+        PictureBox[,] PictureButtonNecks { get; set; }
     }
 }

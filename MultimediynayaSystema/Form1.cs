@@ -19,11 +19,11 @@ namespace MultimediynayaSystema
             InitializeComponent();
         }
 
-        private List<string> patchs = new List<string>();          //список типо путей доступа к нужному объекту там где класс InitPlugin
-        private string PathToFolder = "Music_Plugins";           //название папки где находятся плагины
-        private List<Assembly> assemblies = new List<Assembly>();      //по идеи список сборок
+        private readonly List<string> patchs = new List<string>();          //список типо путей доступа к нужному объекту там где класс InitPlugin
+        private readonly string PathToFolder = "Music_Plugins";           //название папки где находятся плагины
+        private readonly List<Assembly> assemblies = new List<Assembly>();      //по идеи список сборок
 
-        private void comboBox1_DropDown(object sender, EventArgs e)
+        private void ComboBox1_DropDown(object sender, EventArgs e)
         {
             comboBox1.Items.Clear();  //очистка элементов комбобокса
             assemblies.Clear();       //очистка списка сборок
@@ -35,16 +35,20 @@ namespace MultimediynayaSystema
                 {
                     Assembly asm = Assembly.LoadFrom(file.FullName);  //получение сборки из файла через рефлексию
                     string patch = Path.GetFileNameWithoutExtension(file.FullName) + ".InitPlugin"; //получение доступа к классу
-                    Type t = asm.GetType(patch, true, true);    //получение типа
-                    patchs.Add(patch);
-                    object obj = Activator.CreateInstance(t); //получение типа как объект
-                    comboBox1.Items.Add(t.GetProperty("PluginName").GetValue(obj).ToString()); //находит свойство PluginName, получает значение, добавляет в комбобокс
-                    assemblies.Add(asm);
+
+                    Type t = asm.GetType(patch, false, true);    //получение типа
+                    if (t != null)
+                    {
+                        patchs.Add(patch);
+                        object obj = Activator.CreateInstance(t); //получение типа как объект
+                        comboBox1.Items.Add(t.GetProperty("PluginName").GetValue(obj).ToString()); //находит свойство PluginName, получает значение, добавляет в комбобокс
+                        assemblies.Add(asm);
+                    }
                 }
             }
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             Assembly asm = assemblies[comboBox1.SelectedIndex];  //выбирается сборка по выбранному индексу
             Type t = asm.GetType(patchs[comboBox1.SelectedIndex], true, true);
@@ -52,7 +56,7 @@ namespace MultimediynayaSystema
             // получаем метод Show
             MethodInfo method = t.GetMethod("Show");
             // вызываем метод c помощью которого открывается Form1 из библиотеки классов
-            object result = method.Invoke(obj, new object[] { });
+            _ = method.Invoke(obj, new object[] { });
         }
     }
 }

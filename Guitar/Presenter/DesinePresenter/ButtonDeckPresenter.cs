@@ -12,9 +12,9 @@ namespace Guitar.Presenter
 {
     public class ButtonDeckPresenter
     {
-        private IButtonDeckView buttonDeckView;
+        private readonly IButtonDeckView buttonDeckView;
         private PaintDeckModel buttonDeckModel;
-        private StateGuitarPresenter stateGuitarPresenter;
+        private readonly StateGuitarPresenter stateGuitarPresenter;
 
         public ButtonDeckPresenter(IButtonDeckView necksView)
         {
@@ -34,14 +34,14 @@ namespace Guitar.Presenter
 
             for (int j = 0; j < 6; j++)
             {
-                buttonDeckView.pictureButtonDecks[j] = new ButtonDeckView().pictureButtonDeck;
-                buttonDeckView.pictureButtonDecks[j].Location = new Point(2, x); x += 12;
-                buttonDeckView.pictureButtonDecks[j].Image = buttonDeckModel.imgs[0];
+                buttonDeckView.PictureButtonDecks[j] = new ButtonDeckView().pictureButtonDeck;
+                buttonDeckView.PictureButtonDecks[j].Location = new Point(2, x); x += 12;
+                buttonDeckView.PictureButtonDecks[j].Image = buttonDeckModel.imgs[0];
 
-                buttonDeckView.pictureButtonDecks[j].MouseEnter += new EventHandler(Inmousegr);
-                buttonDeckView.pictureButtonDecks[j].MouseLeave += new EventHandler(Outmousegr);
-                buttonDeckView.pictureButtonDecks[j].Name = j.ToString();
-                panel.Controls.Add(buttonDeckView.pictureButtonDecks[j]);
+                buttonDeckView.PictureButtonDecks[j].MouseEnter += new EventHandler(Inmousegr);
+                buttonDeckView.PictureButtonDecks[j].MouseLeave += new EventHandler(Outmousegr);
+                buttonDeckView.PictureButtonDecks[j].Name = j.ToString();
+                panel.Controls.Add(buttonDeckView.PictureButtonDecks[j]);
             }
         }
 

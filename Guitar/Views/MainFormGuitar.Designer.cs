@@ -57,9 +57,12 @@ namespace Guitar.Views
             this.button_Save_in_Bd = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.buttonPlay = new System.Windows.Forms.Button();
+            this.comboPlays = new System.Windows.Forms.ComboBox();
             this.panel_grif = new System.Windows.Forms.Panel();
             this.panel_deg = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.buttonStop = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.num_tabs)).BeginInit();
             this.panel2.SuspendLayout();
@@ -182,6 +185,7 @@ namespace Guitar.Views
             // num_tabs
             // 
             this.num_tabs.BackColor = System.Drawing.Color.Black;
+            this.num_tabs.Enabled = false;
             this.num_tabs.ForeColor = System.Drawing.Color.White;
             this.num_tabs.Location = new System.Drawing.Point(12, 474);
             this.num_tabs.Margin = new System.Windows.Forms.Padding(4);
@@ -228,6 +232,7 @@ namespace Guitar.Views
             // textBox1
             // 
             this.textBox1.BackColor = System.Drawing.Color.Black;
+            this.textBox1.Enabled = false;
             this.textBox1.ForeColor = System.Drawing.Color.White;
             this.textBox1.Location = new System.Drawing.Point(4, 264);
             this.textBox1.Margin = new System.Windows.Forms.Padding(4);
@@ -394,6 +399,9 @@ namespace Guitar.Views
             // 
             this.panel3.BackColor = System.Drawing.Color.Black;
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel3.Controls.Add(this.buttonStop);
+            this.panel3.Controls.Add(this.buttonPlay);
+            this.panel3.Controls.Add(this.comboPlays);
             this.panel3.Controls.Add(this.StopAll);
             this.panel3.Controls.Add(this.combo_out_bd);
             this.panel3.Controls.Add(this.label5);
@@ -408,6 +416,33 @@ namespace Guitar.Views
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(966, 435);
             this.panel3.TabIndex = 11;
+            // 
+            // buttonPlay
+            // 
+            this.buttonPlay.BackColor = System.Drawing.Color.Black;
+            this.buttonPlay.ForeColor = System.Drawing.Color.White;
+            this.buttonPlay.Location = new System.Drawing.Point(604, 103);
+            this.buttonPlay.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonPlay.Name = "buttonPlay";
+            this.buttonPlay.Size = new System.Drawing.Size(136, 29);
+            this.buttonPlay.TabIndex = 43;
+            this.buttonPlay.Text = "Play";
+            this.buttonPlay.UseVisualStyleBackColor = false;
+            this.buttonPlay.Click += new System.EventHandler(this.ButtonPlay_Click);
+            // 
+            // comboPlays
+            // 
+            this.comboPlays.BackColor = System.Drawing.Color.Black;
+            this.comboPlays.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboPlays.ForeColor = System.Drawing.Color.White;
+            this.comboPlays.FormattingEnabled = true;
+            this.comboPlays.Location = new System.Drawing.Point(404, 106);
+            this.comboPlays.Margin = new System.Windows.Forms.Padding(4);
+            this.comboPlays.Name = "comboPlays";
+            this.comboPlays.Size = new System.Drawing.Size(192, 24);
+            this.comboPlays.TabIndex = 14;
+            this.comboPlays.DropDown += new System.EventHandler(this.ComboPlays_DropDown);
+            this.comboPlays.SelectedIndexChanged += new System.EventHandler(this.ComboPlays_SelectedIndexChanged);
             // 
             // panel_grif
             // 
@@ -440,6 +475,19 @@ namespace Guitar.Views
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // buttonStop
+            // 
+            this.buttonStop.BackColor = System.Drawing.Color.Black;
+            this.buttonStop.ForeColor = System.Drawing.Color.White;
+            this.buttonStop.Location = new System.Drawing.Point(748, 103);
+            this.buttonStop.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonStop.Name = "buttonStop";
+            this.buttonStop.Size = new System.Drawing.Size(136, 29);
+            this.buttonStop.TabIndex = 44;
+            this.buttonStop.Text = "Stop";
+            this.buttonStop.UseVisualStyleBackColor = false;
+            this.buttonStop.Click += new System.EventHandler(this.ButtonStop_Click);
+            // 
             // MainFormGuitar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -453,6 +501,9 @@ namespace Guitar.Views
             this.Text = "Form2";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainFormGuitar_FormClosing);
             this.Load += new System.EventHandler(this.MainFormGuitar_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainFormGuitar_KeyDown);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MainFormGuitar_KeyPress);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.MainFormGuitar_KeyUp);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.num_tabs)).EndInit();
@@ -496,5 +547,8 @@ namespace Guitar.Views
         public System.Windows.Forms.Panel panel_grif;
         public System.Windows.Forms.Panel panel_deg;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button buttonPlay;
+        private System.Windows.Forms.ComboBox comboPlays;
+        private System.Windows.Forms.Button buttonStop;
     }
 }

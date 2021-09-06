@@ -13,9 +13,11 @@ namespace Guitar.Views
 
         public ButtonDeckView()
         {
-            pictureButtonDeck = new PictureBox();
-            pictureButtonDeck.Size = new System.Drawing.Size(138, 10);
-            pictureButtonDeck.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureButtonDeck = new PictureBox
+            {
+                Size = new System.Drawing.Size(138, 10),
+                SizeMode = PictureBoxSizeMode.StretchImage
+            };
         }
     }
 }

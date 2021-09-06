@@ -31,9 +31,21 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Win32.Registry, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Win32.Registry.4.7.0\lib\net461\Microsoft.Win32.Registry.dll</HintPath>
+    </Reference>
+    <Reference Include="NAudio.Midi">
+      <HintPath>..\MultimediynayaSystema\bin\Debug\NAudio.Midi.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Security.AccessControl, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.AccessControl.4.7.0\lib\net461\System.Security.AccessControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Principal.Windows, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Principal.Windows.4.7.0\lib\net461\System.Security.Principal.Windows.dll</HintPath>
+    </Reference>
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -44,31 +56,46 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="InitPlugin.cs" />
-    <Compile Include="Models\PaintDeckModel.cs" />
-    <Compile Include="Models\StateGuitar.cs" />
-    <Compile Include="Presenter\ButtonDeckPresenter.cs" />
-    <Compile Include="Presenter\ButtonNeckPresenter.cs" />
-    <Compile Include="Presenter\StateGuitarPresenter.cs" />
-    <Compile Include="Presenter\TextTabsPresenter.cs" />
+    <Compile Include="Models\KeysModel\KeysDeckModel\AbstractKey.cs" />
+    <Compile Include="Models\KeysModel\KeysDeckModel\KeyString2.cs" />
+    <Compile Include="Models\KeysModel\KeysDeckModel\KeyString1.cs" />
+    <Compile Include="Models\KeysModel\KeysDeckModel\KeyString3.cs" />
+    <Compile Include="Models\KeysModel\KeysDeckModel\KeyString4.cs" />
+    <Compile Include="Models\KeysModel\KeysDeckModel\KeyString5.cs" />
+    <Compile Include="Models\KeysModel\KeysDeckModel\KeyString6.cs" />
+    <Compile Include="Models\ModelPlay\MidiModel.cs" />
+    <Compile Include="Models\ModelDesine\PaintDeckModel.cs" />
+    <Compile Include="Models\StateGuitarModel\IStateGuitar.cs" />
+    <Compile Include="Models\StateGuitarModel\IStateGuitarPlaying.cs" />
+    <Compile Include="Models\StateGuitarModel\IStateGuitarDispley.cs" />
+    <Compile Include="Models\StateGuitarModel\StateGuitar.cs" />
+    <Compile Include="Presenter\DesinePresenter\ButtonDeckPresenter.cs" />
+    <Compile Include="Presenter\DesinePresenter\ButtonNeckPresenter.cs" />
+    <Compile Include="Presenter\KeysPresenter\KeyDeckPresenter.cs" />
+    <Compile Include="Presenter\PlayNotePresenter\PlayMidiNotePresenter.cs" />
+    <Compile Include="Presenter\EditDesinePresenter\StateGuitarPresenter.cs" />
+    <Compile Include="Presenter\DesinePresenter\TextTabsPresenter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Views\ButtonDeckView.cs" />
-    <Compile Include="Views\ButtonNeckView.cs" />
-    <Compile Include="Models\PaintNeckModel.cs" />
-    <Compile Include="Views\IButtonDeckView.cs" />
-    <Compile Include="Views\IButtonNeckView.cs" />
-    <Compile Include="Views\ITablatureTextView.cs" />
+    <Compile Include="Views\KeysEvent\IKeysEvent.cs" />
+    <Compile Include="Views\ViewDesine\ButtonDeckView.cs" />
+    <Compile Include="Views\ViewDesine\ButtonNeckView.cs" />
+    <Compile Include="Models\ModelDesine\PaintNeckModel.cs" />
+    <Compile Include="Views\DesineEvent\IButtonDeckView.cs" />
+    <Compile Include="Views\DesineEvent\IButtonNeckView.cs" />
+    <Compile Include="Views\ButtonEvents\ISelectedEvent.cs" />
+    <Compile Include="Views\DesineEvent\ITablatureTextView.cs" />
     <Compile Include="Views\MainFormGuitar.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\MainFormGuitar.Designer.cs">
       <DependentUpon>MainFormGuitar.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\TablatureTextView.cs" />
+    <Compile Include="Views\ViewDesine\TablatureTextView.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -80,6 +107,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
     <None Include="Resources\deka.png" />
   </ItemGroup>
   <ItemGroup>
@@ -88,5 +116,6 @@
     <Content Include="Resources\str1.png" />
     <Content Include="Resources\str2.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

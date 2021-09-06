@@ -7,8 +7,12 @@ using System.Windows.Forms;
 
 namespace Guitar.Views
 {
-    public interface IButtonNeckView
+    internal interface IKeysEvent
     {
-        PictureBox[,] pictureButtonNecks { get; set; }
+        event KeyEventHandler KDown;
+
+        event KeyEventHandler KUp;
+
+        event KeyPressEventHandler KPress;
     }
 }
