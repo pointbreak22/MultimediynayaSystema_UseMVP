@@ -65,6 +65,7 @@
     <Compile Include="Models\KeysModel\KeysDeckModel\KeyString6.cs" />
     <Compile Include="Models\ModelPlay\MidiModel.cs" />
     <Compile Include="Models\ModelDesine\PaintDeckModel.cs" />
+    <Compile Include="Models\ModelPlay\ModePlay.cs" />
     <Compile Include="Models\StateGuitarModel\IStateGuitar.cs" />
     <Compile Include="Models\StateGuitarModel\IStateGuitarPlaying.cs" />
     <Compile Include="Models\StateGuitarModel\IStateGuitarDispley.cs" />
@@ -72,6 +73,7 @@
     <Compile Include="Presenter\DesinePresenter\ButtonDeckPresenter.cs" />
     <Compile Include="Presenter\DesinePresenter\ButtonNeckPresenter.cs" />
     <Compile Include="Presenter\KeysPresenter\KeyDeckPresenter.cs" />
+    <Compile Include="Presenter\PlayNotePresenter\ModePlayPresenter.cs" />
     <Compile Include="Presenter\PlayNotePresenter\PlayMidiNotePresenter.cs" />
     <Compile Include="Presenter\EditDesinePresenter\StateGuitarPresenter.cs" />
     <Compile Include="Presenter\DesinePresenter\TextTabsPresenter.cs" />
@@ -87,7 +89,6 @@
     <Compile Include="Models\ModelDesine\PaintNeckModel.cs" />
     <Compile Include="Views\DesineEvent\IButtonDeckView.cs" />
     <Compile Include="Views\DesineEvent\IButtonNeckView.cs" />
-    <Compile Include="Views\ButtonEvents\ISelectedEvent.cs" />
     <Compile Include="Views\DesineEvent\ITablatureTextView.cs" />
     <Compile Include="Views\MainFormGuitar.cs">
       <SubType>Form</SubType>
@@ -95,6 +96,7 @@
     <Compile Include="Views\MainFormGuitar.Designer.cs">
       <DependentUpon>MainFormGuitar.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\ViewDesine\ISelectedMidi.cs" />
     <Compile Include="Views\ViewDesine\TablatureTextView.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -116,6 +118,8 @@
     <Content Include="Resources\str1.png" />
     <Content Include="Resources\str2.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Views\ButtonEvents\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

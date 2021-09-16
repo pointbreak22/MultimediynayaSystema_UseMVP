@@ -1,5 +1,6 @@
 ﻿using Guitar.Models;
 using Guitar.Presenter;
+
 using System;
 using System.Drawing;
 using System.Threading;
@@ -8,11 +9,13 @@ using System.Windows.Forms;
 
 namespace Guitar.Views
 {
-    public partial class MainFormGuitar : Form, IButtonNeckView, IButtonDeckView, ITablatureTextView, ISelectedEvent, IKeysEvent
+    public partial class MainFormGuitar : Form, IButtonNeckView, IButtonDeckView, ITablatureTextView, IKeysEvent, ISelectedMidi
     {
         public PictureBox[,] PictureButtonNecks { get; set; }
         public PictureBox[] PictureButtonDecks { get; set; }
         public TextBox[,] Texttabs { get; set; }
+        public string SelectInstrument { get { return labelInstruments.Text; } set { labelInstruments.Text = value; } }
+
         private readonly EventWaitHandle ewh = new EventWaitHandle(false, EventResetMode.AutoReset);
 
         public MainFormGuitar()
@@ -42,6 +45,20 @@ namespace Guitar.Views
 
         public event KeyPressEventHandler KPress;
 
+        public event EventHandler ComboPlaysSelectedDropEvent;
+
+        public event EventHandler ComboPlaysSelectedIndexEvent;
+
+        public event EventHandler ValueChanged;
+
+        public event EventHandler SelectedIndexChanged;
+
+        public event EventHandler comboGameModeDropDown;
+
+        public event EventHandler ComboGameModeSelectedIndexChanged;
+
+        public event EventHandler ComboGameModeDropDown;
+
         private void MainFormGuitar_Load(object sender, EventArgs e)
         {
             paintNeckModel = new PaintNeckModel();
@@ -57,8 +74,10 @@ namespace Guitar.Views
 
             stateGuitarPresenter.EventEditPicture += EditPicture;
             MidiModel midiModel = new MidiModel();
-            playMidiNotePresenter = new PlayMidiNotePresenter(midiModel, stateGuitar, stateGuitar, this, ewh);
+            playMidiNotePresenter = new PlayMidiNotePresenter(midiModel, stateGuitar, stateGuitar, ewh);
             KeyDeckPresenter keyDeckPresenter = new KeyDeckPresenter(this, stateGuitar);
+            ModePlayPresenter modePlay = new ModePlayPresenter(this, midiModel);
+
             // AbstractKey abstractKey = new AbstractKey(stateGuitar);
 
             //  neckPresenter.AddControl += AddControl;
@@ -83,12 +102,12 @@ namespace Guitar.Views
 
         private void ComboPlays_DropDown(object sender, EventArgs e)
         {
-            SelectedDropEvent?.Invoke(sender, e);
+            ComboPlaysSelectedDropEvent?.Invoke(sender, e);
         }
 
         private void ComboPlays_SelectedIndexChanged(object sender, EventArgs e)
         {
-            SelectedIndexEvent?.Invoke(sender, e);
+            ComboPlaysSelectedIndexEvent?.Invoke(sender, e);
         }
 
         private void ButtonPlay_Click(object sender, EventArgs e)
@@ -114,6 +133,21 @@ namespace Guitar.Views
         private void MainFormGuitar_KeyPress(object sender, KeyPressEventArgs e)
         {
             KPress?.Invoke(sender, e);
+        }
+
+        private void numericUpDownSelected_ValueChanged(object sender, EventArgs e)
+        {
+            ValueChanged?.Invoke(sender, e);
+        }
+
+        private void comboGameMode_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ComboGameModeSelectedIndexChanged?.Invoke(sender, e);
+        }
+
+        private void comboGameMode_DropDown(object sender, EventArgs e)
+        {
+            comboGameModeDropDown?.Invoke(sender, e);
         }
     }
 }

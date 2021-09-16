@@ -23,6 +23,7 @@ namespace Guitar.Presenter
         private readonly CancellationTokenSource tokenSource;
         private CancellationToken token;
         private readonly EventWaitHandle ewh;
+        //   private MidiModel MidiModel = new MidiModel();
 
         public event Action<PictureBox, Bitmap> EventEditPicture;
 
@@ -126,11 +127,13 @@ namespace Guitar.Presenter
         internal void EditStateNeck(int x, int y, bool flag)
         {
             stateGuitar.StateButtonNecks[x, y] = flag;
+            //   MessageBox.Show(MidiModel.midinoteNeck[x, y].ToString());
         }
 
         internal void EditStateDeck(int x, bool flag)
         {
             stateGuitar.StateButtonDecks[x] = flag;
+            //     stateGuitar.StateButtonNecks[0, x] = flag;
         }
     }
 }

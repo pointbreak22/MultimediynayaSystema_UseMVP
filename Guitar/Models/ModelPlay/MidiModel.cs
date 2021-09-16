@@ -12,10 +12,37 @@ namespace Guitar.Models
         public readonly string[] InstrumentNames = Enum.GetNames(typeof(Instruments));
 
         //  private const int Chanel = 1;
-        public readonly MidiOut midi0 = new MidiOut(1);
+        public int[] PlayModeMidi = { 0, 1 };
+
+        public int playModeInstruments { get; set; }
+        public MidiOut midiOut0 = new MidiOut(0);
+        public MidiOut midiOut1 = new MidiOut(1);
+        public MidiOut[] midiOutSelected;
+        public MidiOut[] midiOutPlay;
+        public int[,] midinoteNeck = new int[28, 6];
+
+        public int SelectedModeMidi { get; set; }
+
+        public MidiModel()
+        {
+            midiOutSelected = new MidiOut[2] { midiOut0, midiOut1 };
+            midiOutPlay = new MidiOut[6] { midiOut0, midiOut0, midiOut0, midiOut0, midiOut0, midiOut0 };
+            RecordingMidiNeck();
+        }
+
+        private void RecordingMidiNeck()
+        {
+            for (int j = 0; j < 6; j++)
+            {
+                for (int i = 0; i < 28; i++)
+                {
+                    midinoteNeck[i, j] = midinote0[j] + i + 1;
+                }
+            }
+        }
 
         public int[] midinote0 = new int[6] { 40, 45, 50, 55, 59, 64 };
-        public int[] midinote = new int[6] { 72, 77, 82, 87, 91, 96 };
+        public int[] midinote1 = new int[6] { 0, 0, 0, 0, 0, 0 };
 
         //public int[] flag = new int[6] { 0, 0, 0, 0, 0, 0 };
         //public int[] flagnote = new int[6];
