@@ -70,6 +70,7 @@
     <Compile Include="Models\StateGuitarModel\IStateGuitarPlaying.cs" />
     <Compile Include="Models\StateGuitarModel\IStateGuitarDispley.cs" />
     <Compile Include="Models\StateGuitarModel\StateGuitar.cs" />
+    <Compile Include="Models\Tabs\TabModel.cs" />
     <Compile Include="Presenter\DesinePresenter\ButtonDeckPresenter.cs" />
     <Compile Include="Presenter\DesinePresenter\ButtonNeckPresenter.cs" />
     <Compile Include="Presenter\KeysPresenter\KeyDeckPresenter.cs" />
@@ -77,12 +78,17 @@
     <Compile Include="Presenter\PlayNotePresenter\PlayMidiNotePresenter.cs" />
     <Compile Include="Presenter\EditDesinePresenter\StateGuitarPresenter.cs" />
     <Compile Include="Presenter\DesinePresenter\TextTabsPresenter.cs" />
+    <Compile Include="Presenter\TabsPresenter\PlayTabsPresenter.cs" />
+    <Compile Include="Presenter\TabsPresenter\TabInListPresenter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Models\Tabs\TabsModel.cs" />
+    <Compile Include="Views\ButtonEvents\IButtonTabsEditEvents.cs" />
+    <Compile Include="Views\ButtonEvents\ITabsPlay.cs" />
     <Compile Include="Views\KeysEvent\IKeysEvent.cs" />
     <Compile Include="Views\ViewDesine\ButtonDeckView.cs" />
     <Compile Include="Views\ViewDesine\ButtonNeckView.cs" />
@@ -118,8 +124,6 @@
     <Content Include="Resources\str1.png" />
     <Content Include="Resources\str2.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\ButtonEvents\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

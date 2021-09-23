@@ -31,25 +31,20 @@ namespace Guitar.Views
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainFormGuitar));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.Clear = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
+            this.OpenTabs = new System.Windows.Forms.Button();
+            this.ButClear = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.PlayallTabs = new System.Windows.Forms.Button();
-            this.SaveallTabs = new System.Windows.Forms.Button();
-            this.Show_tabs = new System.Windows.Forms.Button();
-            this.refresh_tabs = new System.Windows.Forms.Button();
-            this.num_tabs = new System.Windows.Forms.NumericUpDown();
-            this.New_mysik = new System.Windows.Forms.Button();
-            this.Add_Tabs = new System.Windows.Forms.Button();
-            this.StopTab = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.PlayTab = new System.Windows.Forms.Button();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.StopAll = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.ButStopAll = new System.Windows.Forms.Button();
+            this.ButPlayallTabs = new System.Windows.Forms.Button();
+            this.ButSaveallTabs = new System.Windows.Forms.Button();
+            this.ButRemoteTabs = new System.Windows.Forms.Button();
+            this.ButRefreshTabs = new System.Windows.Forms.Button();
+            this.SelectNumTabs = new System.Windows.Forms.NumericUpDown();
+            this.ButNewMysik = new System.Windows.Forms.Button();
+            this.ButAddTabs = new System.Windows.Forms.Button();
+            this.textPulse = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.combo_out_bd = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -57,76 +52,72 @@ namespace Guitar.Views
             this.button_Save_in_Bd = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
+            this.comboGameMode = new System.Windows.Forms.ComboBox();
+            this.checkBoxPlayDont = new System.Windows.Forms.CheckBox();
+            this.labelInstruments = new System.Windows.Forms.Label();
+            this.numericUpDownSelected = new System.Windows.Forms.NumericUpDown();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.comboModeMidi = new System.Windows.Forms.ComboBox();
             this.panel_grif = new System.Windows.Forms.Panel();
             this.panel_deg = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.numericUpDownSelected = new System.Windows.Forms.NumericUpDown();
-            this.labelInstruments = new System.Windows.Forms.Label();
-            this.checkBoxPlayDont = new System.Windows.Forms.CheckBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.comboGameMode = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.num_tabs)).BeginInit();
-            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SelectNumTabs)).BeginInit();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSelected)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Black;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel1.Controls.Add(this.Clear);
-            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.OpenTabs);
+            this.panel1.Controls.Add(this.ButClear);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.StopAll);
-            this.panel1.Controls.Add(this.PlayallTabs);
-            this.panel1.Controls.Add(this.SaveallTabs);
-            this.panel1.Controls.Add(this.Show_tabs);
-            this.panel1.Controls.Add(this.refresh_tabs);
-            this.panel1.Controls.Add(this.num_tabs);
-            this.panel1.Controls.Add(this.New_mysik);
-            this.panel1.Controls.Add(this.Add_Tabs);
-            this.panel1.Controls.Add(this.StopTab);
-            this.panel1.Controls.Add(this.textBox1);
-            this.panel1.Controls.Add(this.PlayTab);
-            this.panel1.Controls.Add(this.richTextBox1);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.comboBox1);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.ButStopAll);
+            this.panel1.Controls.Add(this.ButPlayallTabs);
+            this.panel1.Controls.Add(this.ButSaveallTabs);
+            this.panel1.Controls.Add(this.ButRemoteTabs);
+            this.panel1.Controls.Add(this.ButRefreshTabs);
+            this.panel1.Controls.Add(this.SelectNumTabs);
+            this.panel1.Controls.Add(this.ButNewMysik);
+            this.panel1.Controls.Add(this.ButAddTabs);
+            this.panel1.Controls.Add(this.textPulse);
             this.panel1.Location = new System.Drawing.Point(6, 4);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(194, 719);
             this.panel1.TabIndex = 8;
             // 
-            // Clear
+            // OpenTabs
             // 
-            this.Clear.BackColor = System.Drawing.Color.Black;
-            this.Clear.ForeColor = System.Drawing.Color.White;
-            this.Clear.Location = new System.Drawing.Point(11, 380);
-            this.Clear.Margin = new System.Windows.Forms.Padding(4);
-            this.Clear.Name = "Clear";
-            this.Clear.Size = new System.Drawing.Size(165, 40);
-            this.Clear.TabIndex = 13;
-            this.Clear.Text = "Clear";
-            this.Clear.UseVisualStyleBackColor = false;
+            this.OpenTabs.BackColor = System.Drawing.Color.Black;
+            this.OpenTabs.ForeColor = System.Drawing.Color.White;
+            this.OpenTabs.Location = new System.Drawing.Point(11, 346);
+            this.OpenTabs.Margin = new System.Windows.Forms.Padding(4);
+            this.OpenTabs.Name = "OpenTabs";
+            this.OpenTabs.Size = new System.Drawing.Size(165, 40);
+            this.OpenTabs.TabIndex = 43;
+            this.OpenTabs.Text = "Load Tabs";
+            this.OpenTabs.UseVisualStyleBackColor = false;
+            this.OpenTabs.Click += new System.EventHandler(this.OpenTabs_Click);
             // 
-            // label3
+            // ButClear
             // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Black;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(10, 424);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(102, 20);
-            this.label3.TabIndex = 12;
-            this.label3.Text = "Page_Tabs";
+            this.ButClear.BackColor = System.Drawing.Color.Black;
+            this.ButClear.ForeColor = System.Drawing.Color.White;
+            this.ButClear.Location = new System.Drawing.Point(11, 103);
+            this.ButClear.Margin = new System.Windows.Forms.Padding(4);
+            this.ButClear.Name = "ButClear";
+            this.ButClear.Size = new System.Drawing.Size(165, 40);
+            this.ButClear.TabIndex = 13;
+            this.ButClear.Text = "Clear";
+            this.ButClear.UseVisualStyleBackColor = false;
+            this.ButClear.Click += new System.EventHandler(this.ButClear_Click);
             // 
             // label2
             // 
@@ -134,203 +125,151 @@ namespace Guitar.Views
             this.label2.BackColor = System.Drawing.Color.Black;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(8, 229);
+            this.label2.Location = new System.Drawing.Point(10, 558);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(48, 20);
+            this.label2.Size = new System.Drawing.Size(56, 20);
             this.label2.TabIndex = 11;
-            this.label2.Text = "Ritm";
+            this.label2.Text = "Pulse";
             // 
-            // PlayallTabs
+            // label3
             // 
-            this.PlayallTabs.BackColor = System.Drawing.Color.Black;
-            this.PlayallTabs.ForeColor = System.Drawing.Color.White;
-            this.PlayallTabs.Location = new System.Drawing.Point(11, 622);
-            this.PlayallTabs.Margin = new System.Windows.Forms.Padding(4);
-            this.PlayallTabs.Name = "PlayallTabs";
-            this.PlayallTabs.Size = new System.Drawing.Size(165, 40);
-            this.PlayallTabs.TabIndex = 10;
-            this.PlayallTabs.Text = "Play all";
-            this.PlayallTabs.UseVisualStyleBackColor = false;
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Black;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(10, 147);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(102, 20);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "Page_Tabs";
             // 
-            // SaveallTabs
+            // ButStopAll
             // 
-            this.SaveallTabs.BackColor = System.Drawing.Color.Black;
-            this.SaveallTabs.ForeColor = System.Drawing.Color.White;
-            this.SaveallTabs.Location = new System.Drawing.Point(11, 575);
-            this.SaveallTabs.Margin = new System.Windows.Forms.Padding(4);
-            this.SaveallTabs.Name = "SaveallTabs";
-            this.SaveallTabs.Size = new System.Drawing.Size(165, 40);
-            this.SaveallTabs.TabIndex = 9;
-            this.SaveallTabs.Text = "Save all";
-            this.SaveallTabs.UseVisualStyleBackColor = false;
+            this.ButStopAll.BackColor = System.Drawing.Color.Black;
+            this.ButStopAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ButStopAll.ForeColor = System.Drawing.Color.White;
+            this.ButStopAll.Location = new System.Drawing.Point(11, 665);
+            this.ButStopAll.Margin = new System.Windows.Forms.Padding(4);
+            this.ButStopAll.Name = "ButStopAll";
+            this.ButStopAll.Size = new System.Drawing.Size(165, 40);
+            this.ButStopAll.TabIndex = 42;
+            this.ButStopAll.Text = "Stop";
+            this.ButStopAll.UseVisualStyleBackColor = false;
+            this.ButStopAll.Click += new System.EventHandler(this.ButStopAll_Click);
             // 
-            // Show_tabs
+            // ButPlayallTabs
             // 
-            this.Show_tabs.BackColor = System.Drawing.Color.Black;
-            this.Show_tabs.ForeColor = System.Drawing.Color.White;
-            this.Show_tabs.Location = new System.Drawing.Point(11, 528);
-            this.Show_tabs.Margin = new System.Windows.Forms.Padding(4);
-            this.Show_tabs.Name = "Show_tabs";
-            this.Show_tabs.Size = new System.Drawing.Size(165, 40);
-            this.Show_tabs.TabIndex = 8;
-            this.Show_tabs.Text = "Show";
-            this.Show_tabs.UseVisualStyleBackColor = false;
+            this.ButPlayallTabs.BackColor = System.Drawing.Color.Black;
+            this.ButPlayallTabs.ForeColor = System.Drawing.Color.White;
+            this.ButPlayallTabs.Location = new System.Drawing.Point(11, 617);
+            this.ButPlayallTabs.Margin = new System.Windows.Forms.Padding(4);
+            this.ButPlayallTabs.Name = "ButPlayallTabs";
+            this.ButPlayallTabs.Size = new System.Drawing.Size(165, 40);
+            this.ButPlayallTabs.TabIndex = 10;
+            this.ButPlayallTabs.Text = "Play";
+            this.ButPlayallTabs.UseVisualStyleBackColor = false;
+            this.ButPlayallTabs.Click += new System.EventHandler(this.ButPlayallTabs_Click);
             // 
-            // refresh_tabs
+            // ButSaveallTabs
             // 
-            this.refresh_tabs.BackColor = System.Drawing.Color.Black;
-            this.refresh_tabs.ForeColor = System.Drawing.Color.White;
-            this.refresh_tabs.Location = new System.Drawing.Point(11, 481);
-            this.refresh_tabs.Margin = new System.Windows.Forms.Padding(4);
-            this.refresh_tabs.Name = "refresh_tabs";
-            this.refresh_tabs.Size = new System.Drawing.Size(165, 40);
-            this.refresh_tabs.TabIndex = 7;
-            this.refresh_tabs.Text = "Refresh";
-            this.refresh_tabs.UseVisualStyleBackColor = false;
+            this.ButSaveallTabs.BackColor = System.Drawing.Color.Black;
+            this.ButSaveallTabs.ForeColor = System.Drawing.Color.White;
+            this.ButSaveallTabs.Location = new System.Drawing.Point(11, 298);
+            this.ButSaveallTabs.Margin = new System.Windows.Forms.Padding(4);
+            this.ButSaveallTabs.Name = "ButSaveallTabs";
+            this.ButSaveallTabs.Size = new System.Drawing.Size(165, 40);
+            this.ButSaveallTabs.TabIndex = 9;
+            this.ButSaveallTabs.Text = "Save all";
+            this.ButSaveallTabs.UseVisualStyleBackColor = false;
+            this.ButSaveallTabs.Click += new System.EventHandler(this.ButSaveallTabs_Click);
             // 
-            // num_tabs
+            // ButRemoteTabs
             // 
-            this.num_tabs.BackColor = System.Drawing.Color.Black;
-            this.num_tabs.Enabled = false;
-            this.num_tabs.ForeColor = System.Drawing.Color.White;
-            this.num_tabs.Location = new System.Drawing.Point(11, 448);
-            this.num_tabs.Margin = new System.Windows.Forms.Padding(4);
-            this.num_tabs.Name = "num_tabs";
-            this.num_tabs.Size = new System.Drawing.Size(165, 22);
-            this.num_tabs.TabIndex = 0;
+            this.ButRemoteTabs.BackColor = System.Drawing.Color.Black;
+            this.ButRemoteTabs.ForeColor = System.Drawing.Color.White;
+            this.ButRemoteTabs.Location = new System.Drawing.Point(11, 251);
+            this.ButRemoteTabs.Margin = new System.Windows.Forms.Padding(4);
+            this.ButRemoteTabs.Name = "ButRemoteTabs";
+            this.ButRemoteTabs.Size = new System.Drawing.Size(165, 40);
+            this.ButRemoteTabs.TabIndex = 8;
+            this.ButRemoteTabs.Text = "Remote";
+            this.ButRemoteTabs.UseVisualStyleBackColor = false;
+            this.ButRemoteTabs.Click += new System.EventHandler(this.ButRemoteTabs_Click);
             // 
-            // New_mysik
+            // ButRefreshTabs
             // 
-            this.New_mysik.BackColor = System.Drawing.Color.Black;
-            this.New_mysik.ForeColor = System.Drawing.Color.White;
-            this.New_mysik.Location = new System.Drawing.Point(11, 284);
-            this.New_mysik.Margin = new System.Windows.Forms.Padding(4);
-            this.New_mysik.Name = "New_mysik";
-            this.New_mysik.Size = new System.Drawing.Size(165, 40);
-            this.New_mysik.TabIndex = 6;
-            this.New_mysik.Text = "New ";
-            this.New_mysik.UseVisualStyleBackColor = false;
+            this.ButRefreshTabs.BackColor = System.Drawing.Color.Black;
+            this.ButRefreshTabs.ForeColor = System.Drawing.Color.White;
+            this.ButRefreshTabs.Location = new System.Drawing.Point(11, 204);
+            this.ButRefreshTabs.Margin = new System.Windows.Forms.Padding(4);
+            this.ButRefreshTabs.Name = "ButRefreshTabs";
+            this.ButRefreshTabs.Size = new System.Drawing.Size(165, 40);
+            this.ButRefreshTabs.TabIndex = 7;
+            this.ButRefreshTabs.Text = "Refresh";
+            this.ButRefreshTabs.UseVisualStyleBackColor = false;
+            this.ButRefreshTabs.Click += new System.EventHandler(this.ButRefreshTabs_Click);
             // 
-            // Add_Tabs
+            // SelectNumTabs
             // 
-            this.Add_Tabs.BackColor = System.Drawing.Color.Black;
-            this.Add_Tabs.ForeColor = System.Drawing.Color.White;
-            this.Add_Tabs.Location = new System.Drawing.Point(11, 332);
-            this.Add_Tabs.Margin = new System.Windows.Forms.Padding(4);
-            this.Add_Tabs.Name = "Add_Tabs";
-            this.Add_Tabs.Size = new System.Drawing.Size(165, 40);
-            this.Add_Tabs.TabIndex = 5;
-            this.Add_Tabs.Text = "Add";
-            this.Add_Tabs.UseVisualStyleBackColor = false;
+            this.SelectNumTabs.BackColor = System.Drawing.Color.Black;
+            this.SelectNumTabs.ForeColor = System.Drawing.Color.White;
+            this.SelectNumTabs.Location = new System.Drawing.Point(11, 171);
+            this.SelectNumTabs.Margin = new System.Windows.Forms.Padding(4);
+            this.SelectNumTabs.Name = "SelectNumTabs";
+            this.SelectNumTabs.Size = new System.Drawing.Size(165, 22);
+            this.SelectNumTabs.TabIndex = 0;
+            this.SelectNumTabs.ValueChanged += new System.EventHandler(this.SelectNumTabs_ValueChanged);
             // 
-            // StopTab
+            // ButNewMysik
             // 
-            this.StopTab.BackColor = System.Drawing.Color.Black;
-            this.StopTab.ForeColor = System.Drawing.Color.White;
-            this.StopTab.Location = new System.Drawing.Point(11, 171);
-            this.StopTab.Margin = new System.Windows.Forms.Padding(4);
-            this.StopTab.Name = "StopTab";
-            this.StopTab.Size = new System.Drawing.Size(165, 42);
-            this.StopTab.TabIndex = 4;
-            this.StopTab.Text = "Stop tab";
-            this.StopTab.UseVisualStyleBackColor = false;
+            this.ButNewMysik.BackColor = System.Drawing.Color.Black;
+            this.ButNewMysik.ForeColor = System.Drawing.Color.White;
+            this.ButNewMysik.Location = new System.Drawing.Point(11, 7);
+            this.ButNewMysik.Margin = new System.Windows.Forms.Padding(4);
+            this.ButNewMysik.Name = "ButNewMysik";
+            this.ButNewMysik.Size = new System.Drawing.Size(165, 40);
+            this.ButNewMysik.TabIndex = 6;
+            this.ButNewMysik.Text = "New ";
+            this.ButNewMysik.UseVisualStyleBackColor = false;
+            this.ButNewMysik.Click += new System.EventHandler(this.ButNewMysik_Click);
             // 
-            // textBox1
+            // ButAddTabs
             // 
-            this.textBox1.BackColor = System.Drawing.Color.Black;
-            this.textBox1.Enabled = false;
-            this.textBox1.ForeColor = System.Drawing.Color.White;
-            this.textBox1.Location = new System.Drawing.Point(11, 254);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(165, 22);
-            this.textBox1.TabIndex = 3;
-            this.textBox1.Text = "120";
+            this.ButAddTabs.BackColor = System.Drawing.Color.Black;
+            this.ButAddTabs.ForeColor = System.Drawing.Color.White;
+            this.ButAddTabs.Location = new System.Drawing.Point(11, 55);
+            this.ButAddTabs.Margin = new System.Windows.Forms.Padding(4);
+            this.ButAddTabs.Name = "ButAddTabs";
+            this.ButAddTabs.Size = new System.Drawing.Size(165, 40);
+            this.ButAddTabs.TabIndex = 5;
+            this.ButAddTabs.Text = "Add";
+            this.ButAddTabs.UseVisualStyleBackColor = false;
+            this.ButAddTabs.Click += new System.EventHandler(this.ButAddTabs_Click);
             // 
-            // PlayTab
+            // textPulse
             // 
-            this.PlayTab.BackColor = System.Drawing.Color.Black;
-            this.PlayTab.ForeColor = System.Drawing.Color.White;
-            this.PlayTab.Location = new System.Drawing.Point(11, 122);
-            this.PlayTab.Margin = new System.Windows.Forms.Padding(4);
-            this.PlayTab.Name = "PlayTab";
-            this.PlayTab.Size = new System.Drawing.Size(165, 42);
-            this.PlayTab.TabIndex = 3;
-            this.PlayTab.Text = "Play tab";
-            this.PlayTab.UseVisualStyleBackColor = false;
-            // 
-            // richTextBox1
-            // 
-            this.richTextBox1.BackColor = System.Drawing.Color.Black;
-            this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.richTextBox1.ForeColor = System.Drawing.Color.White;
-            this.richTextBox1.Location = new System.Drawing.Point(11, 72);
-            this.richTextBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(165, 41);
-            this.richTextBox1.TabIndex = 2;
-            this.richTextBox1.Text = "";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Black;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(9, 13);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(121, 25);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Type guitar";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.BackColor = System.Drawing.Color.Black;
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.ForeColor = System.Drawing.Color.White;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(12, 42);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(163, 24);
-            this.comboBox1.TabIndex = 0;
-            // 
-            // StopAll
-            // 
-            this.StopAll.BackColor = System.Drawing.Color.Black;
-            this.StopAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.StopAll.ForeColor = System.Drawing.Color.White;
-            this.StopAll.Location = new System.Drawing.Point(11, 665);
-            this.StopAll.Margin = new System.Windows.Forms.Padding(4);
-            this.StopAll.Name = "StopAll";
-            this.StopAll.Size = new System.Drawing.Size(165, 40);
-            this.StopAll.TabIndex = 42;
-            this.StopAll.Text = "Stop all";
-            this.StopAll.UseVisualStyleBackColor = false;
+            this.textPulse.BackColor = System.Drawing.Color.Black;
+            this.textPulse.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textPulse.ForeColor = System.Drawing.Color.White;
+            this.textPulse.Location = new System.Drawing.Point(11, 582);
+            this.textPulse.Margin = new System.Windows.Forms.Padding(4);
+            this.textPulse.Name = "textPulse";
+            this.textPulse.Size = new System.Drawing.Size(165, 27);
+            this.textPulse.TabIndex = 3;
+            this.textPulse.Text = "120";
+            this.textPulse.TextChanged += new System.EventHandler(this.textPulse_TextChanged);
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Black;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel2.Controls.Add(this.progressBar1);
             this.panel2.Location = new System.Drawing.Point(208, 4);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(966, 86);
             this.panel2.TabIndex = 9;
-            // 
-            // progressBar1
-            // 
-            this.progressBar1.BackColor = System.Drawing.Color.Black;
-            this.progressBar1.ForeColor = System.Drawing.Color.White;
-            this.progressBar1.Location = new System.Drawing.Point(0, 58);
-            this.progressBar1.Margin = new System.Windows.Forms.Padding(4);
-            this.progressBar1.Maximum = 53;
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(964, 26);
-            this.progressBar1.TabIndex = 0;
             // 
             // flowLayoutPanel1
             // 
@@ -429,6 +368,78 @@ namespace Guitar.Views
             this.panel3.Size = new System.Drawing.Size(966, 435);
             this.panel3.TabIndex = 11;
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.Location = new System.Drawing.Point(380, 33);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(85, 17);
+            this.label8.TabIndex = 51;
+            this.label8.Text = "Game mode";
+            // 
+            // comboGameMode
+            // 
+            this.comboGameMode.BackColor = System.Drawing.Color.Black;
+            this.comboGameMode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboGameMode.ForeColor = System.Drawing.Color.White;
+            this.comboGameMode.FormattingEnabled = true;
+            this.comboGameMode.Location = new System.Drawing.Point(485, 30);
+            this.comboGameMode.Margin = new System.Windows.Forms.Padding(4);
+            this.comboGameMode.Name = "comboGameMode";
+            this.comboGameMode.Size = new System.Drawing.Size(87, 24);
+            this.comboGameMode.TabIndex = 50;
+            this.comboGameMode.DropDown += new System.EventHandler(this.comboGameMode_DropDown);
+            this.comboGameMode.SelectedIndexChanged += new System.EventHandler(this.comboGameMode_SelectedIndexChanged);
+            // 
+            // checkBoxPlayDont
+            // 
+            this.checkBoxPlayDont.AutoSize = true;
+            this.checkBoxPlayDont.ForeColor = System.Drawing.Color.White;
+            this.checkBoxPlayDont.Location = new System.Drawing.Point(859, 4);
+            this.checkBoxPlayDont.Name = "checkBoxPlayDont";
+            this.checkBoxPlayDont.Size = new System.Drawing.Size(94, 21);
+            this.checkBoxPlayDont.TabIndex = 49;
+            this.checkBoxPlayDont.Text = "Play/Don\'t";
+            this.checkBoxPlayDont.UseVisualStyleBackColor = true;
+            // 
+            // labelInstruments
+            // 
+            this.labelInstruments.AutoSize = true;
+            this.labelInstruments.ForeColor = System.Drawing.Color.White;
+            this.labelInstruments.Location = new System.Drawing.Point(619, 4);
+            this.labelInstruments.Name = "labelInstruments";
+            this.labelInstruments.Size = new System.Drawing.Size(0, 17);
+            this.labelInstruments.TabIndex = 48;
+            // 
+            // numericUpDownSelected
+            // 
+            this.numericUpDownSelected.Location = new System.Drawing.Point(485, 0);
+            this.numericUpDownSelected.Name = "numericUpDownSelected";
+            this.numericUpDownSelected.Size = new System.Drawing.Size(87, 22);
+            this.numericUpDownSelected.TabIndex = 47;
+            this.numericUpDownSelected.ValueChanged += new System.EventHandler(this.numericUpDownSelected_ValueChanged);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(379, 4);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(100, 17);
+            this.label7.TabIndex = 46;
+            this.label7.Text = "Tool selection ";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(13, 7);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(72, 17);
+            this.label6.TabIndex = 45;
+            this.label6.Text = "Midi mode";
+            // 
             // comboModeMidi
             // 
             this.comboModeMidi.BackColor = System.Drawing.Color.Black;
@@ -474,78 +485,6 @@ namespace Guitar.Views
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(13, 7);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(72, 17);
-            this.label6.TabIndex = 45;
-            this.label6.Text = "Midi mode";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(379, 4);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(100, 17);
-            this.label7.TabIndex = 46;
-            this.label7.Text = "Tool selection ";
-            // 
-            // numericUpDownSelected
-            // 
-            this.numericUpDownSelected.Location = new System.Drawing.Point(485, 0);
-            this.numericUpDownSelected.Name = "numericUpDownSelected";
-            this.numericUpDownSelected.Size = new System.Drawing.Size(87, 22);
-            this.numericUpDownSelected.TabIndex = 47;
-            this.numericUpDownSelected.ValueChanged += new System.EventHandler(this.numericUpDownSelected_ValueChanged);
-            // 
-            // labelInstruments
-            // 
-            this.labelInstruments.AutoSize = true;
-            this.labelInstruments.ForeColor = System.Drawing.Color.White;
-            this.labelInstruments.Location = new System.Drawing.Point(619, 4);
-            this.labelInstruments.Name = "labelInstruments";
-            this.labelInstruments.Size = new System.Drawing.Size(0, 17);
-            this.labelInstruments.TabIndex = 48;
-            // 
-            // checkBoxPlayDont
-            // 
-            this.checkBoxPlayDont.AutoSize = true;
-            this.checkBoxPlayDont.ForeColor = System.Drawing.Color.White;
-            this.checkBoxPlayDont.Location = new System.Drawing.Point(859, 4);
-            this.checkBoxPlayDont.Name = "checkBoxPlayDont";
-            this.checkBoxPlayDont.Size = new System.Drawing.Size(94, 21);
-            this.checkBoxPlayDont.TabIndex = 49;
-            this.checkBoxPlayDont.Text = "Play/Don\'t";
-            this.checkBoxPlayDont.UseVisualStyleBackColor = true;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(380, 33);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(85, 17);
-            this.label8.TabIndex = 51;
-            this.label8.Text = "Game mode";
-            // 
-            // comboGameMode
-            // 
-            this.comboGameMode.BackColor = System.Drawing.Color.Black;
-            this.comboGameMode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboGameMode.ForeColor = System.Drawing.Color.White;
-            this.comboGameMode.FormattingEnabled = true;
-            this.comboGameMode.Location = new System.Drawing.Point(485, 30);
-            this.comboGameMode.Margin = new System.Windows.Forms.Padding(4);
-            this.comboGameMode.Name = "comboGameMode";
-            this.comboGameMode.Size = new System.Drawing.Size(87, 24);
-            this.comboGameMode.TabIndex = 50;
-            this.comboGameMode.DropDown += new System.EventHandler(this.comboGameMode_DropDown);
-            this.comboGameMode.SelectedIndexChanged += new System.EventHandler(this.comboGameMode_SelectedIndexChanged);
-            // 
             // MainFormGuitar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -564,12 +503,11 @@ namespace Guitar.Views
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.MainFormGuitar_KeyUp);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.num_tabs)).EndInit();
-            this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.SelectNumTabs)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSelected)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -577,25 +515,19 @@ namespace Guitar.Views
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button Clear;
+        private System.Windows.Forms.Button ButClear;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button PlayallTabs;
-        private System.Windows.Forms.Button SaveallTabs;
-        private System.Windows.Forms.Button Show_tabs;
-        private System.Windows.Forms.Button refresh_tabs;
-        private System.Windows.Forms.NumericUpDown num_tabs;
-        private System.Windows.Forms.Button New_mysik;
-        private System.Windows.Forms.Button Add_Tabs;
-        private System.Windows.Forms.Button StopTab;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button PlayTab;
-        private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Button StopAll;
+        private System.Windows.Forms.Button ButPlayallTabs;
+        private System.Windows.Forms.Button ButSaveallTabs;
+        private System.Windows.Forms.Button ButRemoteTabs;
+        private System.Windows.Forms.Button ButRefreshTabs;
+        private System.Windows.Forms.NumericUpDown SelectNumTabs;
+        private System.Windows.Forms.Button ButNewMysik;
+        private System.Windows.Forms.Button ButAddTabs;
+        private System.Windows.Forms.TextBox textPulse;
+        private System.Windows.Forms.Button ButStopAll;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.ProgressBar progressBar1;
         public System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.ComboBox combo_out_bd;
         private System.Windows.Forms.Label label5;
@@ -614,5 +546,6 @@ namespace Guitar.Views
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox comboGameMode;
         private System.Windows.Forms.CheckBox checkBoxPlayDont;
+        private System.Windows.Forms.Button OpenTabs;
     }
 }

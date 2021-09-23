@@ -9,12 +9,32 @@ using System.Windows.Forms;
 
 namespace Guitar.Views
 {
-    public partial class MainFormGuitar : Form, IButtonNeckView, IButtonDeckView, ITablatureTextView, IKeysEvent, ISelectedMidi
+    public partial class MainFormGuitar : Form, IButtonNeckView, IButtonDeckView, ITablatureTextView, IKeysEvent, ISelectedMidi, IButtonTabsEditEvents, ITabsPlay
     {
         public PictureBox[,] PictureButtonNecks { get; set; }
         public PictureBox[] PictureButtonDecks { get; set; }
         public TextBox[,] Texttabs { get; set; }
         public string SelectInstrument { get { return labelInstruments.Text; } set { labelInstruments.Text = value; } }
+
+        public int PageTab
+        {
+            get
+            {
+                return (int)SelectNumTabs.Value;
+            }
+            set
+            {
+                if (SelectNumTabs.InvokeRequired)
+                {
+                    Action action = () => SelectNumTabs.Value = value;
+                    Invoke(action);
+                }
+                else
+                {
+                    SelectNumTabs.Value = value;
+                }
+            }
+        }
 
         private readonly EventWaitHandle ewh = new EventWaitHandle(false, EventResetMode.AutoReset);
 
@@ -23,6 +43,7 @@ namespace Guitar.Views
             InitializeComponent();
             PictureButtonDecks = new PictureBox[6];
             PictureButtonNecks = new PictureBox[28, 6];
+
             KeyPreview = true;
         }
 
@@ -57,7 +78,35 @@ namespace Guitar.Views
 
         public event EventHandler ComboGameModeSelectedIndexChanged;
 
+        // ButtonTabsEditEvents
         public event EventHandler ComboGameModeDropDown;
+
+        public event EventHandler ButNewMysikEvent;
+
+        public event EventHandler ButAddTabsEvent;
+
+        public event EventHandler ButClearEvent;
+
+        public event EventHandler SelectNumTabsEvent;
+
+        public event EventHandler ButRefreshTabsEvent;
+
+        public event EventHandler ButRemoteTabsEvent;
+
+        public event EventHandler ButSaveallTabsEvent;
+
+        public event EventHandler OpenTabsEvent;
+
+        public event EventHandler EditPulseEvent;
+
+        //ITabsPlay
+        public event EventHandler ButPlayallTabsEvent;
+
+        public event EventHandler ButStopAllEvent;
+
+        private TabsModel tabsModel;
+        private PlayTabsPresenter playTabsPresenter;
+        private TabInListPresenter tabInListPresenter;
 
         private void MainFormGuitar_Load(object sender, EventArgs e)
         {
@@ -77,12 +126,19 @@ namespace Guitar.Views
             playMidiNotePresenter = new PlayMidiNotePresenter(midiModel, stateGuitar, stateGuitar, ewh);
             KeyDeckPresenter keyDeckPresenter = new KeyDeckPresenter(this, stateGuitar);
             ModePlayPresenter modePlay = new ModePlayPresenter(this, midiModel);
+            tabsModel = new TabsModel();
+            tabInListPresenter = new TabInListPresenter(this, this, tabsModel);
+            tabInListPresenter.LoadTabsModal += TabInListPresenter_LoadTabsModal;
+            playTabsPresenter = new PlayTabsPresenter(this, this, tabsModel, stateGuitar);
 
-            // AbstractKey abstractKey = new AbstractKey(stateGuitar);
-
-            //  neckPresenter.AddControl += AddControl;
             playMidiNotePresenter.StartTread();
             stateGuitarPresenter.StartTread();
+        }
+
+        private void TabInListPresenter_LoadTabsModal(TabsModel obj)
+        {
+            tabsModel = obj;
+            playTabsPresenter = new PlayTabsPresenter(this, this, tabsModel, stateGuitar);
         }
 
         private void EditPicture(PictureBox pictureBox, Bitmap bitmap)
@@ -148,6 +204,61 @@ namespace Guitar.Views
         private void comboGameMode_DropDown(object sender, EventArgs e)
         {
             comboGameModeDropDown?.Invoke(sender, e);
+        }
+
+        private void ButNewMysik_Click(object sender, EventArgs e)
+        {
+            ButNewMysikEvent?.Invoke(sender, e);
+        }
+
+        private void ButAddTabs_Click(object sender, EventArgs e)
+        {
+            ButAddTabsEvent?.Invoke(sender, e);
+        }
+
+        private void ButClear_Click(object sender, EventArgs e)
+        {
+            ButClearEvent?.Invoke(sender, e);
+        }
+
+        private void SelectNumTabs_ValueChanged(object sender, EventArgs e)
+        {
+            SelectNumTabsEvent?.Invoke(sender, e);
+        }
+
+        private void ButRefreshTabs_Click(object sender, EventArgs e)
+        {
+            ButRefreshTabsEvent?.Invoke(sender, e);
+        }
+
+        private void ButRemoteTabs_Click(object sender, EventArgs e)
+        {
+            ButRemoteTabsEvent?.Invoke(sender, e);
+        }
+
+        private void ButSaveallTabs_Click(object sender, EventArgs e)
+        {
+            ButSaveallTabsEvent?.Invoke(sender, e);
+        }
+
+        private void OpenTabs_Click(object sender, EventArgs e)
+        {
+            OpenTabsEvent?.Invoke(sender, e);
+        }
+
+        private void textPulse_TextChanged(object sender, EventArgs e)
+        {
+            EditPulseEvent.Invoke(sender, e);
+        }
+
+        private void ButPlayallTabs_Click(object sender, EventArgs e)
+        {
+            ButPlayallTabsEvent.Invoke(sender, e);
+        }
+
+        private void ButStopAll_Click(object sender, EventArgs e)
+        {
+            ButStopAllEvent.Invoke(sender, e);
         }
     }
 }
