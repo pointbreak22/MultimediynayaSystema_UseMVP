@@ -47,13 +47,11 @@ namespace Guitar.Presenter
 
         private void Inmousegr(object sender, EventArgs e)
         {
-            //  (sender as PictureBox).Image = buttonNeckModel.imgs[1];
             stateGuitarPresenter.EditStateNeck(27 - int.Parse((sender as PictureBox).Name.Split(' ')[0]), int.Parse((sender as PictureBox).Name.Split(' ')[1]), true);
         }
 
         private void Outmousegr(object sender, EventArgs e)
         {
-            //  (sender as PictureBox).Image = buttonNeckModel.imgs[0];
             stateGuitarPresenter.EditStateNeck(27 - int.Parse((sender as PictureBox).Name.Split(' ')[0]), int.Parse((sender as PictureBox).Name.Split(' ')[1]), false);
         }
     }

@@ -44,16 +44,6 @@ namespace Guitar.Models
         public int[] midinote0 = new int[6] { 40, 45, 50, 55, 59, 64 };
         public int[] midinote1 = new int[6] { 0, 0, 0, 0, 0, 0 };
 
-        //public int[] flag = new int[6] { 0, 0, 0, 0, 0, 0 };
-        //public int[] flagnote = new int[6];
-        //public int[] flagnote2 = new int[6];
-        //public int[] lad = new int[6];
-        //public int nf = 0;
-        //public int flagmode;
-        //public int flagbotn = 0;
-        //
-        // midi.Send(MidiMessage.StartNote(flagnote[k], 127, 1).RawData);
-        //midi.Send(MidiMessage.StopNote(flagnote[i], 127, 1).RawData);
         public enum Instruments
         {
             AcousticPiano,

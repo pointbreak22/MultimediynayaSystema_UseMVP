@@ -107,6 +107,7 @@ namespace Guitar.Views
         private TabsModel tabsModel;
         private PlayTabsPresenter playTabsPresenter;
         private TabInListPresenter tabInListPresenter;
+        private MidiModel midiModel;
 
         private void MainFormGuitar_Load(object sender, EventArgs e)
         {
@@ -121,8 +122,7 @@ namespace Guitar.Views
             deckPresenter.PaintButtonDeck(panel_deg);
             tabsPresenter.PaintTabs(flowLayoutPanel1);
 
-            stateGuitarPresenter.EventEditPicture += EditPicture;
-            MidiModel midiModel = new MidiModel();
+            midiModel = new MidiModel();
             playMidiNotePresenter = new PlayMidiNotePresenter(midiModel, stateGuitar, stateGuitar, ewh);
             KeyDeckPresenter keyDeckPresenter = new KeyDeckPresenter(this, stateGuitar);
             ModePlayPresenter modePlay = new ModePlayPresenter(this, midiModel);
@@ -141,19 +141,12 @@ namespace Guitar.Views
             playTabsPresenter = new PlayTabsPresenter(this, this, tabsModel, stateGuitar);
         }
 
-        private void EditPicture(PictureBox pictureBox, Bitmap bitmap)
-        {
-            Action action = async () =>
-            {
-                await Task.Run(() => pictureBox.Image = bitmap);
-            };
-            Invoke(action);
-        }
-
         private void MainFormGuitar_FormClosing(object sender, FormClosingEventArgs e)
         {
             stateGuitarPresenter.SeachStateDispose();
             playMidiNotePresenter.SeachStateDispose();
+            midiModel.midiOut0.Dispose();
+            midiModel.midiOut1.Dispose();
         }
 
         private void ComboPlays_DropDown(object sender, EventArgs e)

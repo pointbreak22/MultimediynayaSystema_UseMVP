@@ -54,7 +54,6 @@ namespace Guitar.Presenter
         private void ButtonTabsEditEvents_ButNewMysikEvent(object sender, EventArgs e)
         {
             tabsModel.tabs = new List<List<TabModel>>();
-            //  tabsModel.tabs.Clear();
         }
 
         private void ButtonTabsEditEvents_ButAddTabsEvent(object sender, EventArgs e)

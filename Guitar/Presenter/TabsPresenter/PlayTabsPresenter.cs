@@ -19,8 +19,6 @@ namespace Guitar.Presenter
         private ITablatureTextView tablatureTextView;
         private IButtonTabsEditEvents buttonTabsEditEvents;
         private int[] deck = new int[6];
-
-        // private Task taskPlay;
         private CancellationTokenSource cancellationToken;
 
         private CancellationToken token;
@@ -35,8 +33,6 @@ namespace Guitar.Presenter
 
             tabsPlay.ButPlayallTabsEvent += TabsPlay_ButPlayallTabsEvent;
             tabsPlay.ButStopAllEvent += TabsPlay_ButStopAllEvent;
-
-            //  taskPlay = new Task(PlayNow);
         }
 
         private void Invoking(Control control, Action action)

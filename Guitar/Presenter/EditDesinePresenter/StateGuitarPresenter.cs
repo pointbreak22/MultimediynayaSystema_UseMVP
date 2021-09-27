@@ -23,7 +23,6 @@ namespace Guitar.Presenter
         private readonly CancellationTokenSource tokenSource;
         private CancellationToken token;
         private readonly EventWaitHandle ewh;
-        //   private MidiModel MidiModel = new MidiModel();
 
         public event Action<PictureBox, Bitmap> EventEditPicture;
 
@@ -54,7 +53,8 @@ namespace Guitar.Presenter
                         {
                             if (stateGuitarDispley.StateButtonNecksDispley[i, j] == false)
                             {
-                                EventEditPicture?.Invoke(buttonNeck.PictureButtonNecks[i, j], paintNeckModel.imgs[1]);
+                                Invoking(buttonNeck.PictureButtonNecks[i, j], () => buttonNeck.PictureButtonNecks[i, j].Image = paintDeckModel.imgs[1]);
+
                                 stateGuitarDispley.StateButtonNecksDispley[i, j] = true;
                             }
                         }
@@ -63,7 +63,8 @@ namespace Guitar.Presenter
                         {
                             if (stateGuitarDispley.StateButtonNecksDispley[i, j] == true)
                             {
-                                EventEditPicture?.Invoke(buttonNeck.PictureButtonNecks[i, j], paintNeckModel.imgs[0]);
+                                Invoking(buttonNeck.PictureButtonNecks[i, j], () => buttonNeck.PictureButtonNecks[i, j].Image = paintDeckModel.imgs[0]);
+
                                 stateGuitarDispley.StateButtonNecksDispley[i, j] = false;
                             }
                         }
@@ -72,6 +73,15 @@ namespace Guitar.Presenter
             }
 
             );
+        }
+
+        private void Invoking(Control control, Action action)
+        {
+            if (control.InvokeRequired)
+            {
+                control.Invoke(action);
+            }
+            else action();
         }
 
         private async void EditStateDeckAcync()
@@ -84,7 +94,8 @@ namespace Guitar.Presenter
                     {
                         if (stateGuitarDispley.StateButtonDecksDispley[j] == false)
                         {
-                            EventEditPicture?.Invoke(buttonDeck.PictureButtonDecks[j], paintDeckModel.imgs[1]);
+                            Invoking(buttonDeck.PictureButtonDecks[j], () => buttonDeck.PictureButtonDecks[j].Image = paintDeckModel.imgs[1]);
+
                             stateGuitarDispley.StateButtonDecksDispley[j] = true;
                         }
                     }
@@ -93,7 +104,8 @@ namespace Guitar.Presenter
                     {
                         if (stateGuitarDispley.StateButtonDecksDispley[j] == true)
                         {
-                            EventEditPicture?.Invoke(buttonDeck.PictureButtonDecks[j], paintDeckModel.imgs[0]);
+                            Invoking(buttonDeck.PictureButtonDecks[j], () => buttonDeck.PictureButtonDecks[j].Image = paintDeckModel.imgs[0]);
+
                             stateGuitarDispley.StateButtonDecksDispley[j] = false;
                         }
                     }
@@ -111,7 +123,6 @@ namespace Guitar.Presenter
                 EditStateNeckAcync();
                 EditStateDeckAcync();
             }
-            MessageBox.Show("Обработка закончилась");
         }
 
         public void SeachStateDispose()
@@ -127,13 +138,11 @@ namespace Guitar.Presenter
         internal void EditStateNeck(int x, int y, bool flag)
         {
             stateGuitar.StateButtonNecks[x, y] = flag;
-            //   MessageBox.Show(MidiModel.midinoteNeck[x, y].ToString());
         }
 
         internal void EditStateDeck(int x, bool flag)
         {
             stateGuitar.StateButtonDecks[x] = flag;
-            //     stateGuitar.StateButtonNecks[0, x] = flag;
         }
     }
 }

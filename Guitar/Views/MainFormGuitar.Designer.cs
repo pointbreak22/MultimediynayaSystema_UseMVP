@@ -292,6 +292,7 @@ namespace Guitar.Views
             this.combo_out_bd.Name = "combo_out_bd";
             this.combo_out_bd.Size = new System.Drawing.Size(482, 24);
             this.combo_out_bd.TabIndex = 16;
+            this.combo_out_bd.Visible = false;
             // 
             // label5
             // 
@@ -305,6 +306,7 @@ namespace Guitar.Views
             this.label5.Size = new System.Drawing.Size(390, 20);
             this.label5.TabIndex = 15;
             this.label5.Text = "Select a melody to remove from the database";
+            this.label5.Visible = false;
             // 
             // text_save_in_bd
             // 
@@ -316,6 +318,7 @@ namespace Guitar.Views
             this.text_save_in_bd.Name = "text_save_in_bd";
             this.text_save_in_bd.Size = new System.Drawing.Size(286, 30);
             this.text_save_in_bd.TabIndex = 14;
+            this.text_save_in_bd.Visible = false;
             // 
             // button_Save_in_Bd
             // 
@@ -328,6 +331,7 @@ namespace Guitar.Views
             this.button_Save_in_Bd.TabIndex = 13;
             this.button_Save_in_Bd.Text = "Save in bd";
             this.button_Save_in_Bd.UseVisualStyleBackColor = false;
+            this.button_Save_in_Bd.Visible = false;
             // 
             // label4
             // 
@@ -341,6 +345,7 @@ namespace Guitar.Views
             this.label4.Size = new System.Drawing.Size(539, 20);
             this.label4.TabIndex = 13;
             this.label4.Text = "Enter the name music of the save to write data to the database";
+            this.label4.Visible = false;
             // 
             // panel3
             // 
@@ -377,6 +382,7 @@ namespace Guitar.Views
             this.label8.Size = new System.Drawing.Size(85, 17);
             this.label8.TabIndex = 51;
             this.label8.Text = "Game mode";
+            this.label8.Visible = false;
             // 
             // comboGameMode
             // 
@@ -389,6 +395,7 @@ namespace Guitar.Views
             this.comboGameMode.Name = "comboGameMode";
             this.comboGameMode.Size = new System.Drawing.Size(87, 24);
             this.comboGameMode.TabIndex = 50;
+            this.comboGameMode.Visible = false;
             this.comboGameMode.DropDown += new System.EventHandler(this.comboGameMode_DropDown);
             this.comboGameMode.SelectedIndexChanged += new System.EventHandler(this.comboGameMode_SelectedIndexChanged);
             // 
@@ -402,6 +409,7 @@ namespace Guitar.Views
             this.checkBoxPlayDont.TabIndex = 49;
             this.checkBoxPlayDont.Text = "Play/Don\'t";
             this.checkBoxPlayDont.UseVisualStyleBackColor = true;
+            this.checkBoxPlayDont.Visible = false;
             // 
             // labelInstruments
             // 
@@ -415,6 +423,11 @@ namespace Guitar.Views
             // numericUpDownSelected
             // 
             this.numericUpDownSelected.Location = new System.Drawing.Point(485, 0);
+            this.numericUpDownSelected.Maximum = new decimal(new int[] {
+            200,
+            0,
+            0,
+            0});
             this.numericUpDownSelected.Name = "numericUpDownSelected";
             this.numericUpDownSelected.Size = new System.Drawing.Size(87, 22);
             this.numericUpDownSelected.TabIndex = 47;

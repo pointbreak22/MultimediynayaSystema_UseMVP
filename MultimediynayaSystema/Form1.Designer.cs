@@ -29,8 +29,10 @@ namespace MultimediynayaSystema
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -49,9 +51,16 @@ namespace MultimediynayaSystema
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(287, 37);
             this.comboBox1.TabIndex = 1;
-        //    this.comboBox1.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.comboBox1_DrawItem);
             this.comboBox1.DropDown += new System.EventHandler(this.ComboBox1_DropDown);
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.ComboBox1_SelectedIndexChanged);
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(18, 90);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(571, 280);
+            this.richTextBox1.TabIndex = 2;
+            this.richTextBox1.Text = resources.GetString("richTextBox1.Text");
             // 
             // Form1
             // 
@@ -59,6 +68,7 @@ namespace MultimediynayaSystema
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(601, 382);
+            this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -75,6 +85,7 @@ namespace MultimediynayaSystema
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.RichTextBox richTextBox1;
     }
 }
 
