@@ -53,7 +53,7 @@ namespace Guitar.Presenter
                         {
                             if (stateGuitarDispley.StateButtonNecksDispley[i, j] == false)
                             {
-                                Invoking(buttonNeck.PictureButtonNecks[i, j], () => buttonNeck.PictureButtonNecks[i, j].Image = paintDeckModel.imgs[1]);
+                                Invoking(buttonNeck.PictureButtonNecks[i, j], () => buttonNeck.PictureButtonNecks[i, j].Image = paintNeckModel.imgs[1]);
 
                                 stateGuitarDispley.StateButtonNecksDispley[i, j] = true;
                             }
@@ -63,7 +63,7 @@ namespace Guitar.Presenter
                         {
                             if (stateGuitarDispley.StateButtonNecksDispley[i, j] == true)
                             {
-                                Invoking(buttonNeck.PictureButtonNecks[i, j], () => buttonNeck.PictureButtonNecks[i, j].Image = paintDeckModel.imgs[0]);
+                                Invoking(buttonNeck.PictureButtonNecks[i, j], () => buttonNeck.PictureButtonNecks[i, j].Image = paintNeckModel.imgs[0]);
 
                                 stateGuitarDispley.StateButtonNecksDispley[i, j] = false;
                             }
