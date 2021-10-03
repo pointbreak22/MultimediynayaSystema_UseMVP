@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace Guitar.Views
 {
-    public interface ITabsPlay
+    public interface IFormClosing
     {
-        event EventHandler ButPlayallTabsEvent;
-
-        event EventHandler ButStopAllEvent;
+        event EventHandler ClosingForm;
     }
 }

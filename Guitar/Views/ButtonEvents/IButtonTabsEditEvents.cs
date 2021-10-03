@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Guitar.Views
 {
-    internal interface IButtonTabsEditEvents
+    public interface IButtonTabsEditEvents
     {
         event EventHandler ButNewMysikEvent;
 

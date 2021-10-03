@@ -13,11 +13,8 @@ namespace Guitar
 
         public void Show()
         {
-            MainFormGuitar form = new MainFormGuitar
-            {
-                Text = PluginName
-            };
-            form.Show();
+            StartApp startAp = new StartApp();
+            startAp.Show(PluginName);
         }
     }
 }

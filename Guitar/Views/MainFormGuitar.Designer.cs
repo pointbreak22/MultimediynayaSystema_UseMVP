@@ -396,7 +396,6 @@ namespace Guitar.Views
             this.comboGameMode.Size = new System.Drawing.Size(87, 24);
             this.comboGameMode.TabIndex = 50;
             this.comboGameMode.Visible = false;
-            this.comboGameMode.DropDown += new System.EventHandler(this.comboGameMode_DropDown);
             this.comboGameMode.SelectedIndexChanged += new System.EventHandler(this.comboGameMode_SelectedIndexChanged);
             // 
             // checkBoxPlayDont

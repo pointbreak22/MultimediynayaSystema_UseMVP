@@ -45,7 +45,7 @@ namespace Guitar.Presenter
                         if (stateGuitarPlaying.StateButtonDecsPlaying[i] == false)
                         {
                             int k = 0;
-                            for (int j = 27; j >= 0; j--)
+                            for (int j = 28; j >= 0; j--)
                             {
                                 if (stateGuitar.StateButtonNecks[j, i] == true)
                                 {

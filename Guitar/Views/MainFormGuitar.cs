@@ -1,6 +1,6 @@
 ﻿using Guitar.Models;
 using Guitar.Presenter;
-
+using Guitar.Views;
 using System;
 using System.Drawing;
 using System.Threading;
@@ -9,14 +9,20 @@ using System.Windows.Forms;
 
 namespace Guitar.Views
 {
-    public partial class MainFormGuitar : Form, IButtonNeckView, IButtonDeckView, ITablatureTextView, IKeysEvent, ISelectedMidi, IButtonTabsEditEvents, ITabsPlay
+    public partial class MainFormGuitar : Form, IButtonNeckView, IButtonDeckView, ITablatureTextView, IKeysEvent, ISelectedMidi, IButtonTabsEditEvents, ITabsPlay, IPictureIn, IFormClosing, IPulsUppdate, IPageUppdate
     {
         public PictureBox[,] PictureButtonNecks { get; set; }
         public PictureBox[] PictureButtonDecks { get; set; }
         public TextBox[,] Texttabs { get; set; }
+
+        public Panel PanelDeck { get { return panel_deg; } set { panel_deg = value; } }
+        public Panel PanelNeck { get { return panel_grif; } set { panel_grif = value; } }
+        public FlowLayoutPanel LayoutPanel { get { return flowLayoutPanel1; } set { flowLayoutPanel1 = value; } }
         public string SelectInstrument { get { return labelInstruments.Text; } set { labelInstruments.Text = value; } }
 
-        public int PageTab
+        public double PulsePlay { get { double.TryParse(textPulse.Text, out double n); return n; } set { textPulse.Text = value.ToString(); } }
+
+        public int NumericPageValue
         {
             get
             {
@@ -26,7 +32,7 @@ namespace Guitar.Views
             {
                 if (SelectNumTabs.InvokeRequired)
                 {
-                    Action action = () => SelectNumTabs.Value = value;
+                    Action action = () => { SelectNumTabs.Value = value; };
                     Invoke(action);
                 }
                 else
@@ -36,51 +42,65 @@ namespace Guitar.Views
             }
         }
 
-        private readonly EventWaitHandle ewh = new EventWaitHandle(false, EventResetMode.AutoReset);
+        public int NumericPageMin { get { return (int)SelectNumTabs.Minimum; } set { SelectNumTabs.Minimum = value; } }
+        public int NumericPageMax { get { return (int)SelectNumTabs.Maximum; } set { SelectNumTabs.Maximum = value; } }
+
+        public bool PulseEnable
+        {
+            get { return textPulse.Enabled; }
+            set
+            {
+                if (SelectNumTabs.InvokeRequired)
+                {
+                    Action action = () => { SelectNumTabs.Enabled = value; };
+                    Invoke(action);
+                }
+                else
+
+                { textPulse.Enabled = value; }
+            }
+        }
+
+        public bool NumericEnable
+        {
+            get { return SelectNumTabs.Enabled; }
+            set
+            {
+                if (SelectNumTabs.InvokeRequired)
+                {
+                    Action action = () => { SelectNumTabs.Enabled = value; };
+                    Invoke(action);
+                }
+                else
+                { SelectNumTabs.Enabled = value; }
+            }
+        }
 
         public MainFormGuitar()
         {
             InitializeComponent();
-            PictureButtonDecks = new PictureBox[6];
-            PictureButtonNecks = new PictureBox[28, 6];
-
             KeyPreview = true;
         }
 
-        private StateGuitar stateGuitar;
-        private StateGuitarPresenter stateGuitarPresenter;
-        private PaintNeckModel paintNeckModel;
-        private PaintDeckModel paintDeckModel; private PlayMidiNotePresenter playMidiNotePresenter;
-
-        public event EventHandler SelectedDropEvent;
-
-        public event EventHandler SelectedIndexEvent;
-
-        public event EventHandler PlayNoteEvent;
-
-        public event EventHandler StopNoteEvent;
-
+        // IKeysEvent
         public event KeyEventHandler KDown;
 
         public event KeyEventHandler KUp;
 
         public event KeyPressEventHandler KPress;
 
+        //ISelectedMidi
         public event EventHandler ComboPlaysSelectedDropEvent;
 
         public event EventHandler ComboPlaysSelectedIndexEvent;
 
         public event EventHandler ValueChanged;
 
-        public event EventHandler SelectedIndexChanged;
-
-        public event EventHandler comboGameModeDropDown;
-
         public event EventHandler ComboGameModeSelectedIndexChanged;
 
-        // ButtonTabsEditEvents
         public event EventHandler ComboGameModeDropDown;
 
+        //IButtonTabsEditEvents
         public event EventHandler ButNewMysikEvent;
 
         public event EventHandler ButAddTabsEvent;
@@ -104,49 +124,12 @@ namespace Guitar.Views
 
         public event EventHandler ButStopAllEvent;
 
-        private TabsModel tabsModel;
-        private PlayTabsPresenter playTabsPresenter;
-        private TabInListPresenter tabInListPresenter;
-        private MidiModel midiModel;
-
-        private void MainFormGuitar_Load(object sender, EventArgs e)
-        {
-            paintNeckModel = new PaintNeckModel();
-            paintDeckModel = new PaintDeckModel();
-            stateGuitar = new StateGuitar();
-            stateGuitarPresenter = new StateGuitarPresenter(stateGuitar, stateGuitar, this, this, paintDeckModel, paintNeckModel, ewh);
-            ButtonNeckPresenter neckPresenter = new ButtonNeckPresenter(this, stateGuitarPresenter);
-            ButtonDeckPresenter deckPresenter = new ButtonDeckPresenter(this, stateGuitarPresenter);
-            TextTabsPresenter tabsPresenter = new TextTabsPresenter(this);
-            neckPresenter.PaintButtonNeck(panel_grif);
-            deckPresenter.PaintButtonDeck(panel_deg);
-            tabsPresenter.PaintTabs(flowLayoutPanel1);
-
-            midiModel = new MidiModel();
-            playMidiNotePresenter = new PlayMidiNotePresenter(midiModel, stateGuitar, stateGuitar, ewh);
-            KeyDeckPresenter keyDeckPresenter = new KeyDeckPresenter(this, stateGuitar);
-            ModePlayPresenter modePlay = new ModePlayPresenter(this, midiModel);
-            tabsModel = new TabsModel();
-            tabInListPresenter = new TabInListPresenter(this, this, tabsModel);
-            tabInListPresenter.LoadTabsModal += TabInListPresenter_LoadTabsModal;
-            playTabsPresenter = new PlayTabsPresenter(this, this, tabsModel, stateGuitar);
-
-            playMidiNotePresenter.StartTread();
-            stateGuitarPresenter.StartTread();
-        }
-
-        private void TabInListPresenter_LoadTabsModal(TabsModel obj)
-        {
-            tabsModel = obj;
-            playTabsPresenter = new PlayTabsPresenter(this, this, tabsModel, stateGuitar);
-        }
+        //IFormClosing
+        public event EventHandler ClosingForm;
 
         private void MainFormGuitar_FormClosing(object sender, FormClosingEventArgs e)
         {
-            stateGuitarPresenter.SeachStateDispose();
-            playMidiNotePresenter.SeachStateDispose();
-            midiModel.midiOut0.Dispose();
-            midiModel.midiOut1.Dispose();
+            ClosingForm?.Invoke(sender, e);
         }
 
         private void ComboPlays_DropDown(object sender, EventArgs e)
@@ -157,16 +140,6 @@ namespace Guitar.Views
         private void ComboPlays_SelectedIndexChanged(object sender, EventArgs e)
         {
             ComboPlaysSelectedIndexEvent?.Invoke(sender, e);
-        }
-
-        private void ButtonPlay_Click(object sender, EventArgs e)
-        {
-            PlayNoteEvent?.Invoke(sender, e);
-        }
-
-        private void ButtonStop_Click(object sender, EventArgs e)
-        {
-            StopNoteEvent?.Invoke(sender, e);
         }
 
         private void MainFormGuitar_KeyDown(object sender, KeyEventArgs e)
@@ -192,11 +165,6 @@ namespace Guitar.Views
         private void comboGameMode_SelectedIndexChanged(object sender, EventArgs e)
         {
             ComboGameModeSelectedIndexChanged?.Invoke(sender, e);
-        }
-
-        private void comboGameMode_DropDown(object sender, EventArgs e)
-        {
-            comboGameModeDropDown?.Invoke(sender, e);
         }
 
         private void ButNewMysik_Click(object sender, EventArgs e)
@@ -241,17 +209,21 @@ namespace Guitar.Views
 
         private void textPulse_TextChanged(object sender, EventArgs e)
         {
-            EditPulseEvent.Invoke(sender, e);
+            EditPulseEvent?.Invoke(sender, e);
         }
 
         private void ButPlayallTabs_Click(object sender, EventArgs e)
         {
-            ButPlayallTabsEvent.Invoke(sender, e);
+            ButPlayallTabsEvent?.Invoke(sender, e);
         }
 
         private void ButStopAll_Click(object sender, EventArgs e)
         {
-            ButStopAllEvent.Invoke(sender, e);
+            ButStopAllEvent?.Invoke(sender, e);
+        }
+
+        private void MainFormGuitar_Load(object sender, EventArgs e)
+        {
         }
     }
 }

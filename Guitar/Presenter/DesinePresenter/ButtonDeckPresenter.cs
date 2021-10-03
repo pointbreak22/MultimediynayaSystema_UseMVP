@@ -15,19 +15,24 @@ namespace Guitar.Presenter
         private readonly IButtonDeckView buttonDeckView;
         private PaintDeckModel buttonDeckModel;
         private readonly StateGuitarPresenter stateGuitarPresenter;
+        private IPictureIn pictureIn;
 
         public ButtonDeckPresenter(IButtonDeckView necksView)
         {
             buttonDeckView = necksView;
         }
 
-        public ButtonDeckPresenter(IButtonDeckView necksView, StateGuitarPresenter stateGuitarPresenter) : this(necksView)
+        public ButtonDeckPresenter(IButtonDeckView necksView, StateGuitarPresenter stateGuitarPresenter, IPictureIn pictureIn) : this(necksView)
         {
             this.stateGuitarPresenter = stateGuitarPresenter;
+            this.pictureIn = pictureIn;
+            PaintButtonDeck();
         }
 
-        public void PaintButtonDeck(Panel panel)
+        public void PaintButtonDeck()
         {
+            pictureIn.PanelDeck.Controls.Clear();
+            buttonDeckView.PictureButtonDecks = new PictureBox[6];
             buttonDeckModel = new PaintDeckModel();
 
             int x = 2;
@@ -41,7 +46,7 @@ namespace Guitar.Presenter
                 buttonDeckView.PictureButtonDecks[j].MouseEnter += new EventHandler(Inmousegr);
                 buttonDeckView.PictureButtonDecks[j].MouseLeave += new EventHandler(Outmousegr);
                 buttonDeckView.PictureButtonDecks[j].Name = j.ToString();
-                panel.Controls.Add(buttonDeckView.PictureButtonDecks[j]);
+                pictureIn.PanelDeck.Controls.Add(buttonDeckView.PictureButtonDecks[j]);
             }
         }
 

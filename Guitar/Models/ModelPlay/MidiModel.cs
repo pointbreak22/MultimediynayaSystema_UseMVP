@@ -19,7 +19,7 @@ namespace Guitar.Models
         public MidiOut midiOut1 = new MidiOut(1);
         public MidiOut[] midiOutSelected;
         public MidiOut[] midiOutPlay;
-        public int[,] midinoteNeck = new int[28, 6];
+        public int[,] midinoteNeck = new int[29, 6];
 
         public int SelectedModeMidi { get; set; }
 
@@ -34,9 +34,9 @@ namespace Guitar.Models
         {
             for (int j = 0; j < 6; j++)
             {
-                for (int i = 0; i < 28; i++)
+                for (int i = 0; i < 29; i++)
                 {
-                    midinoteNeck[i, j] = midinote0[j] + i + 1;
+                    midinoteNeck[i, j] = midinote0[j] + i;
                 }
             }
         }

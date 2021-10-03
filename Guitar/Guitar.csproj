@@ -73,11 +73,13 @@
     <Compile Include="Models\Tabs\TabModel.cs" />
     <Compile Include="Presenter\DesinePresenter\ButtonDeckPresenter.cs" />
     <Compile Include="Presenter\DesinePresenter\ButtonNeckPresenter.cs" />
+    <Compile Include="Presenter\DesinePresenter\ClosingPresenter.cs" />
     <Compile Include="Presenter\KeysPresenter\KeyDeckPresenter.cs" />
     <Compile Include="Presenter\PlayNotePresenter\ModePlayPresenter.cs" />
     <Compile Include="Presenter\PlayNotePresenter\PlayMidiNotePresenter.cs" />
     <Compile Include="Presenter\EditDesinePresenter\StateGuitarPresenter.cs" />
     <Compile Include="Presenter\DesinePresenter\TextTabsPresenter.cs" />
+    <Compile Include="Presenter\TabsPresenter\ListInTabsPresenter.cs" />
     <Compile Include="Presenter\TabsPresenter\PlayTabsPresenter.cs" />
     <Compile Include="Presenter\TabsPresenter\TabInListPresenter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -87,9 +89,14 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Models\Tabs\TabsModel.cs" />
+    <Compile Include="StartApp.cs" />
     <Compile Include="Views\ButtonEvents\IButtonTabsEditEvents.cs" />
+    <Compile Include="Views\ButtonEvents\IFormClosing.cs" />
     <Compile Include="Views\ButtonEvents\ITabsPlay.cs" />
+    <Compile Include="Views\DesineEvent\IPictureIn.cs" />
     <Compile Include="Views\KeysEvent\IKeysEvent.cs" />
+    <Compile Include="Views\UseValues\IPageUppdate.cs" />
+    <Compile Include="Views\UseValues\IPulsUppdate.cs" />
     <Compile Include="Views\ViewDesine\ButtonDeckView.cs" />
     <Compile Include="Views\ViewDesine\ButtonNeckView.cs" />
     <Compile Include="Models\ModelDesine\PaintNeckModel.cs" />
@@ -102,7 +109,7 @@
     <Compile Include="Views\MainFormGuitar.Designer.cs">
       <DependentUpon>MainFormGuitar.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\ViewDesine\ISelectedMidi.cs" />
+    <Compile Include="Views\ButtonEvents\ISelectedMidi.cs" />
     <Compile Include="Views\ViewDesine\TablatureTextView.cs" />
   </ItemGroup>
   <ItemGroup>

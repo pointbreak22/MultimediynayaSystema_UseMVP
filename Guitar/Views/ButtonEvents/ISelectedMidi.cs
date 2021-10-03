@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Guitar.Views
 {
-    internal interface ISelectedMidi
+    public interface ISelectedMidi
     {
         event EventHandler ComboPlaysSelectedDropEvent;
 

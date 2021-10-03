@@ -45,27 +45,27 @@ namespace Guitar.Presenter
         {
             await Task.Run(() =>
             {
-                for (int i = 0; i < 28; i++)
+                for (int i = 0; i < 29; i++)
                 {
                     for (int j = 0; j < 6; j++)
                     {
-                        if (stateGuitar.StateButtonNecks[i, j] == true)
+                        if (stateGuitar.StateButtonNecks[i, j] == true && i != 0)
                         {
-                            if (stateGuitarDispley.StateButtonNecksDispley[i, j] == false)
+                            if (stateGuitarDispley.StateButtonNecksDispley[i - 1, j] == false)
                             {
-                                Invoking(buttonNeck.PictureButtonNecks[i, j], () => buttonNeck.PictureButtonNecks[i, j].Image = paintNeckModel.imgs[1]);
+                                Invoking(buttonNeck.PictureButtonNecks[i - 1, j], () => buttonNeck.PictureButtonNecks[i - 1, j].Image = paintNeckModel.imgs[1]);
 
-                                stateGuitarDispley.StateButtonNecksDispley[i, j] = true;
+                                stateGuitarDispley.StateButtonNecksDispley[i - 1, j] = true;
                             }
                         }
                         else
-                        if (stateGuitar.StateButtonNecks[i, j] == false)
+                        if (stateGuitar.StateButtonNecks[i, j] == false && i != 0)
                         {
-                            if (stateGuitarDispley.StateButtonNecksDispley[i, j] == true)
+                            if (stateGuitarDispley.StateButtonNecksDispley[i - 1, j] == true)
                             {
-                                Invoking(buttonNeck.PictureButtonNecks[i, j], () => buttonNeck.PictureButtonNecks[i, j].Image = paintNeckModel.imgs[0]);
+                                Invoking(buttonNeck.PictureButtonNecks[i - 1, j], () => buttonNeck.PictureButtonNecks[i - 1, j].Image = paintNeckModel.imgs[0]);
 
-                                stateGuitarDispley.StateButtonNecksDispley[i, j] = false;
+                                stateGuitarDispley.StateButtonNecksDispley[i - 1, j] = false;
                             }
                         }
                     }

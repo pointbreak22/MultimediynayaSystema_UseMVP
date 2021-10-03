@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace Guitar.Views
 {
-    public interface ITabsPlay
+    public interface IPulsUppdate
     {
-        event EventHandler ButPlayallTabsEvent;
-
-        event EventHandler ButStopAllEvent;
+        double PulsePlay { get; set; }
+        bool PulseEnable { get; set; }
     }
 }
